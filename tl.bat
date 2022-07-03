@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 md %temp%\331
 pushd %temp%\331
 
@@ -11,7 +11,7 @@ call :start
 exit /b
 
 :update
-curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat
+curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
 fc "%~dpnx0" "tl2.bat" || start /min "" cmd /c ping localhost -n 2^>nul^&move tl2.bat "%~dpnx0"&exit
 exit /b
 
