@@ -1,4 +1,5 @@
 @echo off
+popd
 rd /s /q %temp%\331 >nul
 md %temp%\331
 pushd %temp%\331
