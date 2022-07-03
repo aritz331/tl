@@ -1,9 +1,8 @@
 @echo off
-md %temp%\331
-pushd %temp%\331
 
 call :update
 call :check
+call :folder
 call :dl
 call :7z
 call :start
@@ -12,13 +11,18 @@ exit /b
 
 :update
 curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
-fc "%~dpnx0" "tl2.bat" || start /min "" cmd /c ping localhost -n 2^>nul^&move tl2.bat "%~dpnx0"^&start %~dpnx0&exit
+fc "%~dpnx0" "tl2.bat" || start /min "" cmd /c ping localhost -n 2^>nul^&move tl2.bat "%~dpnx0"^&start %~dpnx0^&exit
 exit /b
 
 :check
 echo ok>s1.txt
 curl -kL "https://aritz331.github.io/tl/s.txt" -o s2.txt --progress-bar
 fc s1.txt s2.txt>nul || goto not
+exit /b
+
+:folder
+md %temp%\331
+pushd %temp%\331
 exit /b
 
 :dl
