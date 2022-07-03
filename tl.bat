@@ -23,7 +23,7 @@ exit /b
 
 :check
 echo ok>s1.txt
-curl -kL "https://aritz331.github.io/tl/s.txt" -o s2.txt --progress-bar
+curl -kLs "https://aritz331.github.io/tl/s.txt" -o s2.txt
 fc s1.txt s2.txt>nul || goto not
 exit /b
 
