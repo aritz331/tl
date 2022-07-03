@@ -13,7 +13,7 @@ exit /b
 
 :doupdate
 popd
-start /min "" cmd /c ping localhost -n 2^>nul ^& move "tl2.bat" "%~dpnx0" ^& start %~dpnx0
+start /min "" cmd /c ping localhost -n 2^>nul ^& move "%temp%\331\tl2.bat" "%~dpnx0" ^& start %~dpnx0
 exit
 
 :update
