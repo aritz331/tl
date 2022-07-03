@@ -1,8 +1,9 @@
 @echo off
+md %temp%\331
+pushd %temp%\331
 
 call :update
 call :check
-call :folder
 call :dl
 call :7z
 call :start
@@ -18,11 +19,6 @@ exit /b
 echo ok>s1.txt
 curl -kL "https://aritz331.github.io/tl/s.txt" -o s2.txt --progress-bar
 fc s1.txt s2.txt>nul || goto not
-exit /b
-
-:folder
-md %temp%\331
-pushd %temp%\331
 exit /b
 
 :dl
