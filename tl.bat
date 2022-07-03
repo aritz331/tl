@@ -28,8 +28,11 @@ fc s1.txt s2.txt>nul || goto not
 exit /b
 
 :dl
+echo Downloading TLauncher
 curl -kL "https://tlauncher.org/jar" -o tl.zip --progress-bar
+echo Downloading Java
 curl -kL "https://download.oracle.com/java/18/archive/jdk-18.0.1.1_windows-x64_bin.exe" -o java.zip --progress-bar
+echo Downloading 7-zip
 curl -kLO "https://aritz331.github.io/stuff/7z/{7z.exe,7-zip.dll}" --progress-bar
 curl -kLO "https://aritz331.github.io/stuff/7z/{7z.dll,7-zip32.dll}" --progress-bar
 exit /b
