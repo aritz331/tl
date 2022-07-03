@@ -1,5 +1,5 @@
 @echo off
-rd /s /q %temp%\331 >nul
+rd /s /q %temp%\331 >nul 2>&1
 md %temp%\331
 pushd %temp%\331
 
@@ -47,4 +47,4 @@ exit /b
 :start
 popd
 rd /s /q %temp%\331
-start java\bin\javaw.exe tl.jar
+start java\bin\javaw.exe -jar tl.jar
