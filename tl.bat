@@ -1,5 +1,4 @@
 rem @echo off
-popd
 rd /s /q %temp%\331 >nul
 md %temp%\331
 pushd %temp%\331
@@ -13,6 +12,7 @@ call :start
 exit /b
 
 :doupdate
+popd
 start /min "" cmd /c ping localhost -n 2^>nul ^& move "tl2.bat" "%~dpnx0" ^& start %~dpnx0
 exit
 
