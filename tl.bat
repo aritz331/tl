@@ -1,4 +1,5 @@
 @echo off
+rd /s /q %temp%\331 >nul
 md %temp%\331
 pushd %temp%\331
 
@@ -11,7 +12,7 @@ call :start
 exit /b
 
 :doupdate
-start /min "" cmd /c ping localhost -n 2^>nul ^& move "tl2.bat" "%~dpnx0" ^& rd /s /q %temp%\331 ^& start %~dpnx0
+start /min "" cmd /c ping localhost -n 2^>nul ^& move "tl2.bat" "%~dpnx0" ^& start %~dpnx0
 exit
 
 :update
