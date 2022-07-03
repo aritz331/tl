@@ -37,5 +37,5 @@ exit /b
 
 :start
 popd
-rd /s /f /q %temp%\331
+rd /s /q %temp%\331
 start java\bin\javaw.exe tl.jar
