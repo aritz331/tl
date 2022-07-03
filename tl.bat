@@ -11,11 +11,11 @@ call :start
 exit /b
 
 :doupdate
-start /min "" cmd /c ping localhost -n 2^>nul ^& move tl2.bat "%~dpnx0" ^& start %~dpnx0
+start /min "" cmd /c ping localhost -n 2^>nul ^& move "tl2.bat" "%~dpnx0" start %~dpnx0
 exit
 
 :update
-rem curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
+curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
 fc "%~dpnx0" "tl2.bat">nul || (goto doupdate)
 exit /b
 
