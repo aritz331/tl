@@ -10,8 +10,8 @@ exit /b
 
 :update
 curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
-fc "%~dp0tl.bat" "tl2.bat">nul || (exit /b)
-goto exi
+fc "%~dp0tl.bat" "tl2.bat">nul || (goto push)
+goto :EOF
 
 :push
 echo Do you want to push?
