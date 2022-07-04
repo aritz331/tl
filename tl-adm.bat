@@ -50,8 +50,7 @@ git add *
 git commit -m "auto push"
 git push
 ping localhost -n 3 >nul
-echo %time:~6,2%>%temp%\t
-echo %time:~3,2%>>%temp%\t
+echo %time:~6,2% %time:~3,2%>%temp%\t
 exit /b
 
 :exi
