@@ -7,11 +7,13 @@ call :update
 exit /b
 
 :update
+echo on
 for /f %%i in ('dir /b /a-D %~dp0') do (
 	curl -kLs "https://aritz331.github.io/tl/%%i" -o %%i2 || exit /b
-	fc "%~dp0%%i" "%%i2">nul || (popd&goto push)
+	fc "%~dp0%%i" "%%i2" || (popd&goto push)
 )
 goto :EOF
+exit /b
 
 :push
 echo Do you want to push?
