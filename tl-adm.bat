@@ -15,11 +15,11 @@ goto :EOF
 exit /b
 
 :push
-for /f "tokens=* delims= " %%i in ('type %temp%\t') do (
+for /f "tokens=2 delims= " %%i in ('type %temp%\t') do (
 	set "i=%%i"
+	set "j=%%j"
 	set /a "it=%i%+30"
 	if "%time:~6,2%" LSS "%it%" (
-		set "j=%%j"
 		set /a "jt=%j%+30"
 		if "%time:~3,2%" LSS "%jt%" (
 			set "can=no"
@@ -27,8 +27,8 @@ for /f "tokens=* delims= " %%i in ('type %temp%\t') do (
 
 	)
 )
-set /a "wm=%t%-%j%"
-set /a "ws=%t%-%i%"
+set /a "wm=%jt%-%j%"
+set /a "ws=%it%-%i%"
 set "wt=%wm%:%ws%"
 if "can"=="no" (echo Please wait %wt%&exit/b)
 
