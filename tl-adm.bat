@@ -16,11 +16,11 @@ exit /b
 
 :push
 for /f "tokens=2 delims= " %%i in ('type %temp%\t') do (
-	set /a "t=%%i+30"
 	set "i=%%i"
+	set /a "t=%i%+30"
 	if "%time:~6,2%" LSS "%t%" (
-		set /a "t=%%j+30"
 		set "j=%%j"
+		set /a "t=%j%+30"
 		if "%time:~3,2%" LSS "%t%" (
 			set "can=no"
 		) 
