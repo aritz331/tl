@@ -4,13 +4,13 @@ md %temp%\331
 pushd %temp%\331
 
 call :update
-popd
-call :push
 exit /b
 
 :update
-curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
-fc "%~dp0tl.bat" "tl2.bat">nul || (goto push)
+for /f %%i in ('dir /b /a-D %~dp0') do (
+	curl -kLs "https://aritz331.github.io/tl/%%i" -o %%i2 || exit /b
+	fc "%~dp0%%i" "%%i2">nul || (popd&goto push)
+)
 goto :EOF
 
 :push
