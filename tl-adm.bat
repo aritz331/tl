@@ -23,6 +23,7 @@ set /a "el=%errorlevel%-1"
 set "yn=pshexi"
 setlocal enabledelayedexpansion
 set "yn=!yn:~%el%,3!"
+cls
 goto %yn%
 exit /b
 
