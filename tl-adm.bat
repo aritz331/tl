@@ -27,7 +27,9 @@ for /f "tokens=* delims=:" %%i in ('type %temp%\t') do (
 
 	)
 )
-set /a "wt=%t%-%j%:%t%-%i%"
+set /a "wm=%t%-%j%"
+set /a "ws=%t%-%i%"
+set "wt=%wm%:%ws%"
 if "can"=="no" (echo Please wait %wt%&exit/b)
 
 echo Do you want to push?
