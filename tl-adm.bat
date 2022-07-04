@@ -15,7 +15,7 @@ goto :EOF
 exit /b
 
 :push
-for /f "tokens=* delims=:" %%i in ('type %temp%\t') do (
+for /f "tokens=* delims= " %%i in ('type %temp%\t') do (
 	set "i=%%i"
 	set /a "it=%i%+30"
 	if "%time:~6,2%" LSS "%it%" (
