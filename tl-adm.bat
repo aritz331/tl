@@ -31,7 +31,7 @@ exit /b
 git add *
 git commit -m "auto push"
 git push
-ping localhost -n 2 >nul
+ping localhost -n 3 >nul
 exit /b
 
 :exi
