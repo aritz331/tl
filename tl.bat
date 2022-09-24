@@ -10,8 +10,9 @@ set "tl=%userprofile%\.tl"
 
 if not exist %tl% (
 	md %tl%
-	attrib +s +h +r %tl%
 )
+
+attrib -s -h -r %tl%
 
 if not exist %tl%\java\  (call :dl-j )
 if not exist %tl%\tl.jar (
