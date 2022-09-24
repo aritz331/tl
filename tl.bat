@@ -5,9 +5,19 @@ pushd %temp%\331
 
 call :update
 call :check
-call :dl-7z
-if not exist %~dp0java\  (call :dl-j )
-if not exist %~dp0tl.jar (call :dl-tl)
+
+set "tl=%userprofile%\.tl"
+
+if not exist %tl% (
+	md %tl%
+	attrib +s +h +r %tl%
+)
+
+if not exist %tl%\java\  (call :dl-j )
+if not exist %tl%\tl.jar (
+	call :dl-7z
+	call :dl-tl
+)
 call :start
 exit /b
 
@@ -46,17 +56,20 @@ call :7z-j
 exit /b
 
 :7z-tl
-7z e -y tl.zip TL*.jar -so > %~dp0tl.jar
+7z e -y tl.zip TL*.jar -so > %tl%\tl.jar
 exit /b
 
 :7z-j
 7z e -y java.zip st.cab -o.
 7z e -y st.cab tools.zip -o.
-7z x -y tools.zip -o%~dp0java\
+7z x -y tools.zip -o%tl%\java\
 exit /b
 
 :start
 popd
 rd /s /q %temp%\331
+attrib -s -h -r %tl%
+cd %tl%
 start java\bin\javaw.exe -jar tl.jar
+attrib +s +h +r %tl%
 exit /b
