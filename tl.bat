@@ -61,9 +61,13 @@ exit /b
 exit /b
 
 :7z-j
+cls
 7z e -y java.zip st.cab -o.
+cls
 7z e -y st.cab tools.zip -o.
+cls
 7z x -y tools.zip -o%tl%\java\
+cls
 exit /b
 
 :start
