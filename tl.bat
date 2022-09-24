@@ -1,4 +1,5 @@
 @echo off
+title TLauncher Downloader ^| by aritz331_ for Aritz's Utils - an aritz331_ original series
 rd /s /q %temp%\331 >nul 2>&1
 md %temp%\331
 pushd %temp%\331
