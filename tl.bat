@@ -1,8 +1,7 @@
 @echo off
 title TLauncher Downloader ^| by aritz331_ for Aritz's Utils - an aritz331_ original series
-rd /s /q %temp%\331 >nul 2>&1
-md %temp%\331
-pushd %temp%\331
+if not exist %temp%\331 (md %temp%\331) else (attrib -s -h -r %temp%\331)
+cd %temp%\331
 
 call :update
 call :check
@@ -15,9 +14,13 @@ if not exist %tl% (
 
 attrib -s -h -r %tl%
 
-if not exist %tl%\java\  (call :dl-j )
+
+if not exist %tl%\java\  (
+	7z >nul 2>&1 || call :dl-7z
+	call :dl-j
+)
 if not exist %tl%\tl.jar (
-	call :dl-7z
+	7z >nul 2>&1 || call :dl-7z
 	call :dl-tl
 )
 call :start
@@ -73,9 +76,10 @@ exit /b
 
 :start
 popd
-rd /s /q %temp%\331
-attrib -s -h -r %tl%
-cd %tl%
+pushd %tl%
 start java\bin\javaw.exe -jar tl.jar
+popd
 attrib +s +h +r %tl%
+attrib +s +h +r %temp%\331
+set "tl="
 exit /b
