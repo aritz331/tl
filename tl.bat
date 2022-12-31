@@ -27,7 +27,7 @@ call :start
 exit /b
 
 :update
-curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
+curl -#kL "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
 fc "%~dpnx0" "tl2.bat">nul || (goto doupdate)
 exit /b
 
@@ -44,19 +44,19 @@ exit /b
 
 :dl-7z
 echo Downloading 7-zip
-curl -kLO "https://aritz331.github.io/stuff/7z/{7z.exe,7-zip.dll}" --progress-bar
-curl -kLO "https://aritz331.github.io/stuff/7z/{7z.dll,7-zip32.dll}" --progress-bar
+curl -#kLO "https://aritz331.github.io/stuff/7z/{7z.exe,7-zip.dll}"
+curl -#kLO "https://aritz331.github.io/stuff/7z/{7z.dll,7-zip32.dll}"
 exit /b
 
 :dl-tl
 echo Downloading TLauncher
-curl -kL "https://tlauncher.org/jar" -o tl.zip --progress-bar
+curl -#kL "https://tlauncher.org/jar" -o tl.zip
 call :7z-tl
 exit /b
 
 :dl-j
 echo Downloading Java
-curl -kL "https://download.oracle.com/java/18/archive/jdk-18.0.1.1_windows-x64_bin.exe" -o java.zip --progress-bar
+curl -#kL "https://download.oracle.com/java/18/archive/jdk-18.0.1.1_windows-x64_bin.exe" -o java.zip
 call :7z-j
 exit /b
 
