@@ -19,10 +19,10 @@ if not exist %tl%\java\  (
 	7z >nul 2>&1 || call :dl-7z
 	call :dl-j
 )
-if not exist %tl%\tl.jar (
-	7z >nul 2>&1 || call :dl-7z
-	call :dl-tl
-)
+rem if not exist %tl%\tl.jar (
+rem 	7z >nul 2>&1 || call :dl-7z
+rem 	call :dl-tl
+rem )
 call :start
 exit /b
 
