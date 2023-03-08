@@ -1,1 +1,1 @@
-@curl -kLs "https://aritz331.github.io/tl/tl.bat" -o tl.bat&start cmd /c del %0&start tl.bat&exit
+@start cmd /c del "%~dpnx0"^&curl -kLOs "https://aritz331.github.io/tl/tl.bat"^&start "%~dpnx0"&exit
