@@ -20,8 +20,8 @@ if not exist %tl%\java\  (
 	call :dl-j
 )
 rem if not exist %tl%\tl.jar (
-rem 	7z >nul 2>&1 || call :dl-7z
-rem 	call :dl-tl
+ 	7z >nul 2>&1 || call :dl-7z
+ 	call :dl-tl
 rem )
 call :start
 exit /b
